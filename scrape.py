@@ -1,7 +1,7 @@
 import os
-import requests
-from bs4 import BeautifulSoup
 import re
+from bs4 import BeautifulSoup
+import requests
 from crawl import get_subpages, BASE_URL
 
 
@@ -39,6 +39,7 @@ def main():
             with open(filepath, "w", encoding="utf-8") as f:
                 f.write(text)
             print(f"Saved: {filepath}")
+
 
 if __name__ == "__main__":
     main()

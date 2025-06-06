@@ -1,5 +1,5 @@
-import requests
 from bs4 import BeautifulSoup
+import requests
 from urllib.parse import urljoin, urlparse
 
 
@@ -18,6 +18,7 @@ def get_subpages(url):
         if parsed.netloc == urlparse(BASE_URL).netloc and parsed.path.startswith("/support/"):
             links.add(full_url)
     return sorted(links)
+
 
 if __name__ == "__main__":
     subpage_urls = get_subpages(BASE_URL)
