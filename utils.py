@@ -49,12 +49,12 @@ def initialize_rag():
     embeddings = OpenAIEmbeddings(model="text-embedding-ada-002")
 
     # # Initialize FAISS vector store
-    # vector_store = FAISS.from_documents(docs, embeddings)
-    # vector_store.save_local("faiss_index")  # Save index to disk
+    vector_store = FAISS.from_documents(docs, embeddings)
+    vector_store.save_local("faiss_index")  # Save index to disk
     # Download FAISS index from S3 if not present
-    if not os.path.exists("faiss_index"):
-        download_faiss_index("rag-chatbot-index", "faiss_index/")
-    vector_store = FAISS.load_local("faiss_index", embeddings, allow_dangerous_deserialization=True)
+    # if not os.path.exists("faiss_index"):
+    #     download_faiss_index("angel-vector-store-index", "faiss_index/")
+    # vector_store = FAISS.load_local("faiss_index", embeddings, allow_dangerous_deserialization=True)
 
     # Initialize LLM
     llm = ChatOpenAI(model="gpt-4", temperature=0)
