@@ -1,14 +1,14 @@
 import streamlit as st
 import requests
 
-st.title("AngelOne Support RAG Chatbot")
+st.title("AngelOne Support Chatbot")
 if "chat_history" not in st.session_state:
     st.session_state.chat_history = []
 
 question = st.text_input("Ask a question:")
 if st.button("Send"):
     response = requests.post(
-        "http://localhost:8000/chat",
+        "https://angel-rag-production.up.railway.app/chat",
         json={"question": question, "chat_history": st.session_state.chat_history}
     ).json()
     if "answer" in response:
