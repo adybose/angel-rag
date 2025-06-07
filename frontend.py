@@ -69,6 +69,6 @@ if st.button("Send"):
 if st.session_state.chat_history:
     st.subheader("Chat History")
     for human, ai in st.session_state.chat_history[-2::-1]:
-        st.write(f"**You**: {human}")
-        st.write(f"**AI**: {ai}")
+        st.write(f"**Question**: {human}")
+        st.write(f"**Answer**: {ai}")
         st.markdown("---")
